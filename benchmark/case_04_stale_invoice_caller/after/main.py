@@ -1,0 +1,27 @@
+from fastapi import Depends, FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from typing import Optional
+
+app = FastAPI()
+
+def create_invoice(customer_id: int, amount: float, currency: str):
+    return invoice_service.create(customer_id, amount, currency)
+
+def invoice_for_order(order):
+    return create_invoice(order.customer_id, order.total, order.currency)
+
+def invoice_for_subscription(subscription):
+    return create_invoice(subscription.customer_id, subscription.price, "USD")
+
+@app.post("/invoices/order/{order_id}")
+def order_invoice(order_id: int):
+    order = order_service.get(order_id)
+    if order is None:
+        raise HTTPException(status_code=404, detail="Order not found")
+    return invoice_for_order(order)
+
+def legacy_invoice(customer_id: int, amount: float):
+    return create_invoice(customer_id, amount)
+
+def invoice_status(invoice_id: int):
+    return invoice_service.status(invoice_id)

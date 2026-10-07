@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "edge_case",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 15,
+      "description": "The endpoint dereferences profile.email even when the user has no profile."
+    }
+  ]
+}

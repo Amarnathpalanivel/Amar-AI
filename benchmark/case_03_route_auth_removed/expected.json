@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "security",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 14,
+      "description": "Removing the authenticated-user dependency makes private account data available to unauthenticated callers."
+    }
+  ]
+}

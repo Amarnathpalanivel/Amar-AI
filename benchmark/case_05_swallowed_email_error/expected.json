@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "logic",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 10,
+      "description": "The bare handler suppresses every delivery failure and falsely reports the notification as sent."
+    }
+  ]
+}

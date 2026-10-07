@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "logic",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 13,
+      "description": "The slice stops one item early, so every paginated response omits its final requested result."
+    }
+  ]
+} 

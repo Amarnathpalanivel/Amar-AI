@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "logic",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 8,
+      "description": "The reservation coroutine is never awaited, so stock is not reserved before the order is accepted."
+    }
+  ]
+}

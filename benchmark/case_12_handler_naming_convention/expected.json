@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "convention",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 19,
+      "description": "The new endpoint uses camelCase while the peer handlers in this file use snake_case, breaking the local naming convention."
+    }
+  ]
+}

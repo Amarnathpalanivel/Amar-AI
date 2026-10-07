@@ -1,0 +1,21 @@
+diff --git a/before/main.py b/after/main.py
+index 571e83e..47b9862 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -10,12 +10,12 @@ def subtotal(items):
+         total += item.price * item.quantity
+     return round(total, 2)
+ 
++def cart_subtotal(items):
++    return subtotal(items)
++
+ @app.post("/cart/total")
+ def cart_total(cart: Cart):
+-    amount = 0
+-    for item in cart.items:
+-        amount += item.price * item.quantity
+-    return {"subtotal": round(amount, 2)}
++    return {"subtotal": cart_subtotal(cart.items)}
+ 
+ def tax_for(subtotal: float, rate: float):
+     return round(subtotal * rate, 2)

@@ -1,0 +1,13 @@
+diff --git a/before/main.py b/after/main.py
+index 7c9dc18..9f5a93e 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -7,7 +7,7 @@ app = FastAPI()
+ def withdraw(account, amount: float):
+     if amount <= 0:
+         raise HTTPException(status_code=422, detail="Amount must be positive")
+-    if account.balance < amount:
++    if account.balance <= amount:
+         raise HTTPException(status_code=409, detail="Insufficient funds")
+     account.balance -= amount
+     ledger.record(account.id, -amount)

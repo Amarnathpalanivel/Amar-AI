@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "logic",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 10,
+      "description": "Rejecting balances equal to the withdrawal amount incorrectly blocks a valid zero-balance withdrawal."
+    }
+  ]
+}

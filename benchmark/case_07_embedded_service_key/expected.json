@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "security",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 7,
+      "description": "The source now embeds a live-looking service credential instead of loading it from protected configuration."
+    }
+  ]
+}

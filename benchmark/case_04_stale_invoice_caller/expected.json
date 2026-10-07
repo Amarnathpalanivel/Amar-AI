@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "logic",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 24,
+      "description": "The legacy call omits the newly required currency argument and raises TypeError when that branch runs."
+    }
+  ]
+}

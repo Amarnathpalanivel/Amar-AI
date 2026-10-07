@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "security",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 8,
+      "description": "Concatenating the untrusted search term into SQL permits injection and unintended query execution."
+    }
+  ]
+}

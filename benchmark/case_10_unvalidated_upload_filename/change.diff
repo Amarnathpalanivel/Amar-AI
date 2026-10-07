@@ -1,0 +1,13 @@
+diff --git a/before/main.py b/after/main.py
+index e01c28b..6b9b7da 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -5,7 +5,7 @@ from typing import Optional
+ app = FastAPI()
+ 
+ class UploadRequest(BaseModel):
+-    filename: str = Field(min_length=1, max_length=120, pattern=r"^[\\w.-]+$")
++    filename: str
+     content_type: str
+ 
+ def store_upload(request: UploadRequest, data: bytes):

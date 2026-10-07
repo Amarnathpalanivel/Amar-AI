@@ -1,0 +1,15 @@
+diff --git a/before/main.py b/after/main.py
+index 4a1ff9b..05bfadc 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -5,8 +5,8 @@ from typing import Optional
+ app = FastAPI()
+ 
+ def search_customers(term: str):
+-    query = text("SELECT id, name FROM customers WHERE name LIKE :term")
+-    return database.execute(query, {"term": f"%{term}%"}).fetchall()
++    query = "SELECT id, name FROM customers WHERE name LIKE '%" + term + "%'"
++    return database.execute(text(query)).fetchall()
+ 
+ @app.get("/customers/search")
+ def customer_search(term: str):

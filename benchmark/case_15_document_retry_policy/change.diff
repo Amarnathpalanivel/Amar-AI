@@ -1,0 +1,12 @@
+diff --git a/before/main.py b/after/main.py
+index ef7af1f..3ccac32 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -6,6 +6,7 @@ app = FastAPI()
+ 
+ def retry_delay(attempt: int, base: float = 0.25):
+     attempt = max(attempt, 0)
++    # Cap exponential backoff so a transient failure does not delay work indefinitely.
+     return min(base * (2 ** attempt), 8.0)
+ 
+ @app.get("/jobs/{job_id}/retry-delay")

@@ -1,0 +1,23 @@
+diff --git a/before/main.py b/after/main.py
+index c0bba11..2abe5b2 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -5,7 +5,7 @@ from typing import Optional
+ app = FastAPI()
+ 
+ class ExportFilter(BaseModel):
+-    status: Optional[str] = None
++    status: Optional[str] = Field(default=None, pattern="^(ready|running|failed)$")
+ 
+ def list_exports(status: Optional[str] = None):
+     if status is not None and status not in {"ready", "running", "failed"}:
+@@ -14,7 +14,8 @@ def list_exports(status: Optional[str] = None):
+ 
+ @app.get("/exports")
+ def exports(status: Optional[str] = None):
+-    return list_exports(status)
++    filters = ExportFilter(status=status)
++    return list_exports(filters.status)
+ 
+ def export_status(export_id: str):
+     return export_repository.status(export_id)

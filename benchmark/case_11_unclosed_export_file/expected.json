@@ -1,0 +1,11 @@
+{
+  "has_bug": true,
+  "category": "edge_case",
+  "issues": [
+    {
+      "file": "main.py",
+      "line": 8,
+      "description": "The export file is never closed, leaking descriptors under repeated or interrupted requests."
+    }
+  ]
+}

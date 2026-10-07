@@ -1,0 +1,20 @@
+diff --git a/before/main.py b/after/main.py
+index 9217142..ed69dc5 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -9,6 +9,8 @@ def receive_webhook(payload: dict):
+         return webhook_service.process(payload)
+     except WebhookSignatureError as exc:
+         raise HTTPException(status_code=401, detail="Invalid signature") from exc
++    except WebhookPayloadError as exc:
++        raise HTTPException(status_code=422, detail="Invalid payload") from exc
+ 
+ @app.post("/webhooks/provider")
+ def provider_webhook(payload: dict):
+@@ -22,6 +24,3 @@ def ready():
+ 
+ def provider_enabled():
+     return settings.provider_enabled
+-
+-def event_count():
+-    return webhook_repository.count()

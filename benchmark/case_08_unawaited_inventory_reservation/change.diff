@@ -1,0 +1,13 @@
+diff --git a/before/main.py b/after/main.py
+index 4567c4a..7debb63 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -5,7 +5,7 @@ from typing import Optional
+ app = FastAPI()
+ 
+ async def create_order(order_id: int, sku: str, quantity: int):
+-    await inventory.reserve(order_id, sku, quantity)
++    inventory.reserve(order_id, sku, quantity)
+     order = await order_repository.create(order_id, sku, quantity)
+     return order
+ 

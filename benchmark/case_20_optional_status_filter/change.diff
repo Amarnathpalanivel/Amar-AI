@@ -1,0 +1,15 @@
+diff --git a/before/main.py b/after/main.py
+index 0874feb..c4ecc57 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -9,9 +9,7 @@ def find_tasks(status: Optional[str]):
+ 
+ @app.get("/tasks")
+ def tasks(status: Optional[str] = None):
+-    if status:
+-        return find_tasks(status)
+-    return find_tasks(None)
++    return find_tasks(status)
+ 
+ def task_count(status: Optional[str] = None):
+     return task_repository.count(status=status)

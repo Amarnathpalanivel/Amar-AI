@@ -1,0 +1,15 @@
+diff --git a/before/main.py b/after/main.py
+index b130608..0e3f2af 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -4,9 +4,7 @@ from typing import Optional
+ 
+ app = FastAPI()
+ 
+-import os
+-
+-PAYMENTS_API_KEY = os.environ["PAYMENTS_API_KEY"]
++PAYMENTS_API_KEY = "sk_live_4f8b2c9d7a1e"
+ 
+ def payment_headers():
+     return {"Authorization": f"Bearer {PAYMENTS_API_KEY}"}

@@ -1,0 +1,14 @@
+diff --git a/before/main.py b/after/main.py
+index 03e87cb..2089bf5 100644
+--- a/before/main.py
++++ b/after/main.py
+@@ -10,7 +10,8 @@ def list_events(limit: int, cursor: Optional[str]):
+ @app.get("/events")
+ def events(limit: int = 50, cursor: Optional[str] = None):
+     page_size = min(max(limit, 1), 200)
+-    return list_events(page_size, cursor)
++    normalized_cursor = normalize_cursor(cursor)
++    return list_events(page_size, normalized_cursor)
+ 
+ def event_count():
+     return event_repository.count()
